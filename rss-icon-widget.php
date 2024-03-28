@@ -71,6 +71,7 @@ add_action( 'widgets_init', 'register_rss_icon_widget' );
 function register_dynamic_rss_icon_widget() {
 	return register_widget( 'DynamicRSSIconWidget' );
 }
+add_action( 'widgets_init', 'register_dynamic_rss_icon_widget' );
 
 /**
  * Register scripts for widgets
@@ -94,5 +95,3 @@ function rss_icon_widget_scripts( $hook ) {
 }
 
 add_action( 'admin_enqueue_scripts', 'rss_icon_widget_scripts' );
-
-add_action( 'widgets_init', 'register_dynamic_rss_icon_widget' );
