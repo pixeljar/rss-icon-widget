@@ -41,14 +41,14 @@ function rssiw_load_textdomain() {
 }
 add_action( 'plugins_loaded', 'rssiw_load_textdomain' );
 
+define( 'RSSIW_URL', plugin_dir_url( __FILE__ ) );
+define( 'RSSIW_ABS', plugin_dir_path( __FILE__ ) );
+define( 'RSSIW_REL', basename( __DIR__ ) );
+define( 'RSSIW_SLUG', plugin_basename( __FILE__ ) );
+define( 'RSSIW_ASSETS', plugin_dir_url( __FILE__ ) . 'assets/' );
+define( 'RSSIW_LANG', RSSIW_ABS . 'i18n/' );
+define( 'RSSIW_VERSION', '5.3' );
 
-define( 'RSSIW_URL',     plugin_dir_url( __FILE__ ) );
-define( 'RSSIW_ABS',     plugin_dir_path( __FILE__ ) );
-define( 'RSSIW_REL',     basename( dirname( __FILE__ ) ) );
-define( 'RSSIW_SLUG',    plugin_basename( __FILE__ ) );
-define( 'RSSIW_ASSETS',  plugin_dir_url( __FILE__ ) . 'assets/' );
-define( 'RSSIW_LANG',    RSSIW_ABS.'i18n/' );
-define( 'RSSIW_VERSION', '5.2' );
 
 // Changelog.
 if ( ! class_exists( 'RSSIW_Changelog' ) ) {
