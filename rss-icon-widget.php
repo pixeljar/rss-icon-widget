@@ -50,6 +50,7 @@ define( 'RSSIW_LANG', RSSIW_ABS . 'i18n/' );
 define( 'RSSIW_VERSION', '5.3' );
 
 require_once RSSIW_ABS . 'lib/class-rssiconwidget.php';
+require_once RSSIW_ABS . 'lib/class-dynamicrssiconwidget.php';
 
 // Changelog.
 if ( ! class_exists( 'RSSIW_Changelog' ) ) {
@@ -64,104 +65,7 @@ function register_rss_icon_widget() {
 }
 add_action( 'widgets_init', 'register_rss_icon_widget' );
 
-class DynamicRSSIconWidget extends WP_Widget {
-
-	var $icon_sizes = array(
-		'10' => '10 x 10',
-		'12' => '12 x 12',
-		'14' => '14 x 14',
-		'16' => '16 x 16',
-		'24' => '24 x 24',
-		'32' => '32 x 32'
-	);
-
-    /** constructor */
-    function __construct() {
-		parent::__construct(
-			false,
-			$name = __( 'Dynamic RSS Icon Widget', 'rssiw' ),
-			$widget_options = array(
-				'description' => __( 'Display a link with the standard RSS Feed Icon linked to the RSS feed for the archive page you\'re viewing. Note: This widget will only display on archive pages like the main blog list.', 'rssiw' )
-			)
-		);
-    }
-
-    /** @see WP_Widget::widget */
-    function widget( $args, $instance) {
-
-    	if ( ! is_archive() && ! is_home() ) {
-    		return;
-    	}
-
-        extract( $args );
-
-		echo $before_widget;
-		// URL
-		$url = trailingslashit( home_url( $_SERVER['REQUEST_URI'] ) ) . 'feed/';
-
-		echo '<a href="'.esc_url( $url ).'" ';
-
-			echo ( isset( $instance['new_window'] ) && $instance['new_window'] == 1 ? 'target="_blank" ' : '' );
-
-			// Styles
-			echo 'style="'.
-
-				// Color
-				'color: '.$instance['link_color'].'; '.
-
-				// Padding
-				'padding: '.( $instance['image_size'] / 2 ).'px 0px '.
-								 ( $instance['image_size'] / 2 ).'px '.
-								 ( $instance['image_size'] + 5 ).'px; '.
-				// Image
-				'background: url(\''.RSSIW_URL.'icons/feed-icon-'.$instance['image_size'].'x'.$instance['image_size'].'.png\') no-repeat 0 50%;">';
-			echo esc_html( $instance['link_text'] );
-		echo '</a>';
-		echo $after_widget;
-    }
-
-    /** @see WP_Widget::update */
-    function update( $new_instance, $old_instance ) {
-		$updated_instance = $new_instance;
-		return $updated_instance;
-    }
-
-    /** @see WP_Widget::form */
-    function form( $instance = array() ) {
-		$defaults = array(
-			'image_size'	=> '10',
-			'link_text'		=> __( 'Subscribe via RSS', 'rssiw' ),
-			'link_color'	=> '#ff0000',
-			'new_window'	=> '0',
-		);
-		extract( wp_parse_args( $instance, $defaults ) );
-		?>
-			<p><label for="<?php echo $this->get_field_id( 'image_size' ); ?>"><?php _e( 'Icon Size:', 'rssiw' ) ?><br />
-				<select id="<?php echo $this->get_field_id( 'image_size' ); ?>" name="<?php echo $this->get_field_name( 'image_size' ); ?>" style="width: 100%;">
-					<?php
-						foreach( $this->icon_sizes as $size_key => $size_name) :
-							echo '  <option value="'.$size_key.'"'.selected( $image_size, $size_key, true ).'>'.$size_name.'</option>';
-						endforeach;
-					?>
-				</select>
-			</label></p>
-
-			<p><label for="<?php echo $this->get_field_id( 'link_text' ); ?>"><?php _e( 'Link Text:', 'rssiw' ) ?><br />
-				<input id="<?php echo $this->get_field_id( 'link_text' ); ?>" name="<?php echo $this->get_field_name( 'link_text' ); ?>" type="text" style="width: 100%;" value="<?php echo esc_attr( $link_text ) ?>" />
-			</label></p>
-			<p><label for="rssicon_link_color"><?php _e( 'Link Color:', 'rssiw' ); ?><br />
-				<div id="<?php echo $this->get_field_id( 'link_color' ); ?>_colorpicker"></div>
-				<input class="rss-icon-widget-colorpicker" id="<?php echo $this->get_field_id( 'link_color' ); ?>" name="<?php echo $this->get_field_name( 'link_color' ); ?>" type="text" style="width: 100%;" value="<?php echo esc_attr( $link_color ); ?>" />
-			</label></p>
-
-			<p><input id="<?php echo $this->get_field_id( 'new_window' ); ?>" name="<?php echo $this->get_field_name( 'new_window' ); ?>" type="checkbox" value="1" <?php checked( 1, $new_window ) ?> />
-			<label for="<?php echo $this->get_field_id( 'new_window' ); ?>"><?php _e( 'Open in a new window?', 'rssiw' ) ?></label></p>
-		<?php
-    }
-
-} // class DynamicRSSIconWidget
-
-/*
+/**
  * Register DynamicRSSIconWidget widget
  */
 function register_dynamic_rss_icon_widget() {
