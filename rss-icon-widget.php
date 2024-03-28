@@ -74,7 +74,9 @@ function register_dynamic_rss_icon_widget() {
 add_action( 'widgets_init', 'register_dynamic_rss_icon_widget' );
 
 /**
- * Register scripts for widgets
+ * Register scripts for widgets.
+ *
+ * @param string $hook The current page.
  */
 function rss_icon_widget_scripts( $hook ) {
 
