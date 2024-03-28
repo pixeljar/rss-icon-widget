@@ -89,31 +89,8 @@
 						'WordPress',
 						esc_url( 'https://adsanityplugin.com/' )
 					);
-				?></p>
-			</div>
-
-			<div class="ad">
-				<a href="https://www.clickrangerpro.com/" target="_blank">
-					<img
-						src="<?php echo RSSIW_ASSETS . 'images/click-ranger-pro.svg' ?>"
-						alt="<?php esc_attr_e( 'Click Ranger Pro logo', 'rssiw' ); ?>"
-					/>
-				</a>
-				<p><?php
-					printf(
-						wp_kses(
-							__( '%1$s helps you easily track user clicks, downloads, and events of your %2$s website to %3$s. Get the data you need without the fuss of JavaScript or PHP. You can read all about it on the <a href="%4$s" target="_blank">%1$s site</a>.', 'rssiw' ),
-							array( 'a' => array(
-								'href'   => array(),
-								'target' => array(),
-							) )
-						),
-						'Click Ranger Pro',
-						'WordPress',
-						'Google Analytics',
-						esc_url( 'https://www.clickrangerpro.com/' )
-					);
-				?></p>
+					?>
+				</p>
 			</div>
 		</div>
 	</div>
