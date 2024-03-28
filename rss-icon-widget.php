@@ -36,9 +36,9 @@ define( 'RSSIW_ASSETS',  plugin_dir_url( __FILE__ ) . 'assets/' );
 define( 'RSSIW_LANG',    RSSIW_ABS.'i18n/' );
 define( 'RSSIW_VERSION', '5.2' );
 
-// Changelog
+// Changelog.
 if ( ! class_exists( 'RSSIW_Changelog' ) ) {
-	require_once RSSIW_ABS . 'lib/changelog.php';
+	require_once RSSIW_ABS . 'lib/class-changelog.php';
 }
 
 // INTERNATIONALIZATION
