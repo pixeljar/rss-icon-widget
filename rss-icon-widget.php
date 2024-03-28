@@ -1,32 +1,37 @@
 <?php
-/*
-Plugin Name: RSS Icon Widget
-Description: The idea is to have a widget to display a link to any rss feed with a <a href="http://www.feedicons.com">standard feed icon</a>.
-Plugin URI: http://pixeljar.com
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3497105
-Author: Pixel Jar
-Author URI: http://www.pixeljar.com
-Contributors: brandondove, jeffreyzinn
-Version: 5.2
-License: GPL2
-Text Domain: rssiw
-Domain Path: /i18n
+/**
+ * Plugin Name: RSS Icons
+ * Plugin URI: https://pixeljar.com
+ * Description: The idea is to have a widget to display a link to any rss feed with a <a href="http://www.feedicons.com">standard feed icon</a>.
+ * Version: 5.3
+ * Requires at least: 6.0
+ * Requires PHP: 7.4
+ * Author: Pixel Jar
+ * Author URI: http://www.pixeljar.com
+ * License: GPL v2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: rssiw
+ * Domain Path: /lang
+ *
+ * Copyright (C) Mar 15, 2019  Pixel Jar  info@pixeljar.com
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License, version 2, as
+ * published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ * @package WordPress
+ */
 
-    Copyright (C) Jul 24, 2017  Pixel Jar  info@pixeljar.com
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as
-    published by the Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
 
 define( 'RSSIW_URL',     plugin_dir_url( __FILE__ ) );
 define( 'RSSIW_ABS',     plugin_dir_path( __FILE__ ) );
