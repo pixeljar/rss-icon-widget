@@ -31,6 +31,15 @@
  * @package WordPress
  */
 
+/**
+ * Load internationalization files.
+ *
+ * @return void
+ */
+function rssiw_load_textdomain() {
+	load_plugin_textdomain( 'rssiw', false, RSSIW_REL );
+}
+add_action( 'plugins_loaded', 'rssiw_load_textdomain' );
 
 
 define( 'RSSIW_URL',     plugin_dir_url( __FILE__ ) );
@@ -46,8 +55,6 @@ if ( ! class_exists( 'RSSIW_Changelog' ) ) {
 	require_once RSSIW_ABS . 'lib/class-changelog.php';
 }
 
-// INTERNATIONALIZATION
-load_plugin_textdomain( 'rssiw', null, RSSIW_REL );
 
 class RSSIconWidget extends WP_Widget {
 
