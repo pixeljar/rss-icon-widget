@@ -1,10 +1,10 @@
 === RSS Icon Widget ===
 Contributors: brandondove, jeffreyzinn, nateconley
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3497105
-Tags: RSS Feed, Feed Icon, Widget, Sidebar
-Requires at least: 2.8
-Tested up to: 5.0.3
-Stable tag: 5.2
+Tags: RSS Feed, Feed Icon, Widget, RSS Block, RSS Shortcode, Sidebar
+Requires at least: 6.0
+Tested up to: 6.5
+Stable tag: 5.3
 
 == Description ==
 
@@ -57,3 +57,10 @@ Ok. If you don't see mention of widgets in the WordPress admin, you're not crazy
 - Removes deprecated functions
 - Updates the colorpicker to WordPress' built-in library
 - Adds changelog
+
+= 5.3 =
+- Entire codebase has been audited and modernized for security and PHP/WordPress compatibility.
+- Updates code to be compatible with PHP 8.2+
+- Updates code to be compatible with the Widget Block Editor interface
+
+
